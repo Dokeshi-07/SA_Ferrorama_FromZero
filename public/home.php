@@ -1,5 +1,5 @@
 <?php
-include("./infra/connection.php");
+#include("./infra/connection.php");
 ?>
 
 <html lang="en">
@@ -10,6 +10,6 @@ include("./infra/connection.php");
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
 <body>
-    
+    <?php include("../assets/presets/navbar.php"); ?>
 </body>
 </html>
