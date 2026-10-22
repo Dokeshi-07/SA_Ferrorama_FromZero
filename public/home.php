@@ -9,7 +9,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
-<body>
+<body class="bodyHome">
     <?php include("../assets/presets/navbar.php"); ?>
+
+    <img src="../assets/img/trainStation5.jpg" alt="Train Station">
 </body>
 </html>

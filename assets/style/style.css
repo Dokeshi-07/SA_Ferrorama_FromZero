@@ -1,12 +1,60 @@
 /*
+General CSS
+*/
+.flex {
+    display: flex;
+}
+
+/*
 Navbar CSS
 */
 
 #nav {
-    background-color: #333;
+    background-color: #313131;
+    width: 100%;
+    height: auto;
+    align-items: top;
     overflow: hidden;
+}
+.navbar-brand {
+    display: flex;
+    padding-right: 85%;
+}
+.navbar-brand img{
+    height: 80px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.navbar-login {
+    display: flex;
+    align-items: right
+    justify-content: right;
+}
+
+.navbar-login a {
+    color: white;
+    text-decoration: none;
+    item-align: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.navbar-login img { 
+    height: 80px;
+    width: auto;
+    padding: 10px;
 }
 
 /*
-
+body CSS
 */
+
+.bodyHome {
+    background-color: #496d81;
+    margin: 0;
+    padding: 0;
+}
+
