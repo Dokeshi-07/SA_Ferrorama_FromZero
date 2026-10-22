@@ -1,0 +1,12 @@
+TO DO list
+    menu admin
+    menu principal
+    pagina login
+    diferenciação entre admin e client
+    permitir apenas certas ações para admin
+    pagina de promoção para admin (acessavel apenas por admins)
+    crud usuarios
+    pagina trens
+    crud trens
+    pagina rotas
+    crud rotas
