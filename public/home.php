@@ -1,5 +1,6 @@
 <?php
-#include("./infra/connection.php");
+include("./infra/connection.php");
+session_start();
 ?>
 
 <html lang="en">

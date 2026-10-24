@@ -1,5 +1,5 @@
 TO DO list
-    database planning
+    -database planning
     pagina pré-login
     menu admin
     menu principal
@@ -12,3 +12,11 @@ TO DO list
     crud trens
     pagina rotas
     crud rotas
+    css
+
+$_SESSION planning
+    start session
+    grab post variables
+    check if it is in the databank
+    if yes, then go to home 
+    else error and point 
