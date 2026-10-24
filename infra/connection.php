@@ -1,16 +1,15 @@
-<?php 
+<?php
 
-$host = "localhost:3306";
+$host = "127.0.0.1";
+$porta = 3306;
 $usuario = "root";
 $senha = "";
-$banco = "sa_ferrorama_d_s_i_n";
+$banco = "ferroramaDB";
 
-$conexao = new mysqli($host, $usuario, $senha, $banco);
+$conexao = new mysqli($host, $usuario, $senha, $banco, $porta);
 
-if ($conexao->connect_error) {
-    die("Erro na conexão com o banco:" . $conexao->connect_error);
-};
+if ($conexao->connect_errno) {
+    die("Erro na conexão com o banco de dados: " . $conexao->connect_error);
+}
 
 $conexao->set_charset("utf8mb4");
-
-?>
