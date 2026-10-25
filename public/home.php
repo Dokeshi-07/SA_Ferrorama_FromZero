@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+    $_SESSION = [];
+    session_destroy();
+    header('Location: home.php');
+    exit;
+}
+
 $userName = $_SESSION['userName'] ?? null;
 ?>
 
@@ -11,20 +19,24 @@ $userName = $_SESSION['userName'] ?? null;
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
 <body class="bodyHome">
+    <!-- navbar -->
     <?php include("../assets/presets/navbar.php"); ?>
+
+    <!-- log in and register -->
+    <a href="login.php">Login</a>
+    <br>
+    <a href="register.php">Register</a>
+
+    <!-- logout button -->
+    <form method="POST" action="home.php">
+        <button id="logoutButton" type="submit" name="logout" value="1">Log out</button>
+    </form>
+
+    <!-- logged in content -->
     <?php if ($userName !== null): ?>
         <h2>You're logged in, <?= htmlspecialchars($userName, ENT_QUOTES, 'UTF-8'); ?>!</h2>
+        <a href="trains.php">trains page</a> <br>
+        <a href="routes.php">routes page</a>
     <?php endif; ?>
-    <button id="logoutButton"type="button">log out</button>
-    <script>
-        const logout = document.getElementById("logoutButton");
-        button.addEventListener("click", () => 
-            <?php
-                session_destroy();
-            ?>
-            window.location.reload();
-        )
-    </script>
-    <!-- <img src="../assets/img/trainStation5.jpg" alt="Train Station"> -->
 </body>
 </html>
