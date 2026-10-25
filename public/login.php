@@ -1,23 +1,23 @@
 <?php
-include("./infra/connection.php");
+require_once __DIR__ . "/../infra/connection.php";
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userName = trim($_POST['userName'] ?? '');
     $userPassword = $_POST['userPassword'] ?? '';
 
-    $stmt = $connection->prepare(
-        'SELECT id, name, password FROM users WHERE name = ? LIMIT 1'
+    $stmt = $conexao->prepare(
+        'SELECT id, userName, userPassword FROM users WHERE userName = ? LIMIT 1'
     );
     $stmt->bind_param('s', $userName);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-    if ($user && password_verify($userPassword, $user['password'])) {
+    if ($user && password_verify($userPassword, $user['userPassword'])) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['name'];
-        header('Location: index.php');
+        $_SESSION['user_name'] = $user['userName'];
+        header('Location: ../index.php');
         exit;
     }
 

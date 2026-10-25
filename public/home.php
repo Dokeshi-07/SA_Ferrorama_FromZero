@@ -13,6 +13,6 @@ session_start();
 <body class="bodyHome">
     <?php include("../assets/presets/navbar.php"); ?>
 
-    <!--<img src="../assets/img/trainStation5.jpg" alt="Train Station"> -->
+    <!-- <img src="../assets/img/trainStation5.jpg" alt="Train Station"> -->
 </body>
 </html>
