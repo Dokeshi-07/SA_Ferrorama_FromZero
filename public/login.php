@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $result->fetch_assoc();
 
     if ($user && password_verify($userPassword, $user['userPassword'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['userName'];
+        $_SESSION['userId'] = $user['id'];
+        $_SESSION['userName'] = $user['userName'];
         header('Location: ../index.php');
         exit;
     }
@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $loginError = 'Invalid username or password.';
     $stmt->close();
 }
-
 ?>
 
 <html lang="en">
