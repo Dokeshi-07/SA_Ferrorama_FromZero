@@ -35,40 +35,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/style/style.css">
 </head>
 <body>
-    <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'); ?>">
-        <label for="Name">Name</label>
-        <input type="text" id="userName" name="userName" required>
-
-        <label for="Email">Email</label>
-        <input type="email" id="userEmail" name="userEmail" required>
-
-        <label for="Phone">Phone Number</label>
-        <input type="tel" id="userPhone" name="userPhone" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" maxlength="15" inputmode="numeric" required>
-
-        <label for="Password">Password</label>
-        <input type="password" id="userPassword" name="userPassword" required>
-
-        <input type="submit" value="Submit">
-    </form>
-
-    <script>
-        const phoneInput = document.getElementById('userPhone');
-
-        phoneInput.addEventListener('input', () => {
-            let phone = phoneInput.value.replace(/\D/g, '').slice(0, 11);
-
-            if (phone.length > 2) {
-                phone = `(${phone.slice(0, 2)}) ${phone.slice(2)}`;
-            } else if (phone.length > 0) {
-                phone = `(${phone}`;
+    <div>
+        <a href="home.php">Go back</a>
+    </div>
+    <div>
+        <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'); ?>">
+            <label for="Name">Name</label>
+            <input type="text" id="userName" name="userName" required>
+            
+            <label for="Email">Email</label>
+            <input type="email" id="userEmail" name="userEmail" required>
+            
+            <label for="Phone">Phone Number</label>
+            <input type="tel" id="userPhone" name="userPhone" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" maxlength="15" inputmode="numeric" required>
+            
+            <label for="Password">Password</label>
+            <input type="password" id="userPassword" name="userPassword" required>
+            
+            <input type="submit" value="Submit">
+        </form>
+        <!-- phone number organazation script -->
+        <script>
+            const phoneInput = document.getElementById('userPhone');
+            
+            phoneInput.addEventListener('input', () => {
+                let phone = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+                
+                if (phone.length > 2) {
+                    phone = `(${phone.slice(0, 2)}) ${phone.slice(2)}`;
+                } else if (phone.length > 0) {
+                    phone = `(${phone}`;
             }
-
+            
             if (phone.length > 10) {
                 phone = `${phone.slice(0, 10)}-${phone.slice(10)}`;
             }
-
+            
             phoneInput.value = phone;
         });
-    </script>
+        </script>
+    </div>
 </body>
 </html>

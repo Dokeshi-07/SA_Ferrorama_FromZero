@@ -16,11 +16,11 @@ Navbar CSS
     align-items: top;
     overflow: hidden;
 }
-.navbar-brand {
+.navbar-logo {
     display: flex;
     padding-right: 85%;
 }
-.navbar-brand img{
+.navbar-logo img{
     height: 80px;
     width: auto;
     align-items: center;
@@ -28,13 +28,13 @@ Navbar CSS
     padding: 10px;
 }
 
-.navbar-login {
+.navbar-user {
     display: flex;
     align-items: right
     justify-content: right;
 }
 
-.navbar-login a {
+.navbar-user a {
     color: white;
     text-decoration: none;
     item-align: center;

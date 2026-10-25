@@ -34,21 +34,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Ferrorame Login</title>
 </head>
 <body>
-    <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') ?>">
-        <!-- name form -->
-        <label for="Name">Name</label>
-        <input type="text" id="userName" name="userName" required>
-        <!-- password form -->
-        <label for="Password">Password</label>
-        <input type="password" id="userPassword" name="userPassword" required>
-        <!-- submit button -->
-        <input type="submit" value="Login">
-
-        <?php if (isset($loginError)): ?>
+    <div>
+        <a href="home.php">Go back</a>
+    </div>
+    <div>
+        <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') ?>">
+            <!-- name form -->
+            <label for="Name">Name</label>
+            <input type="text" id="userName" name="userName" required>
+            <!-- password form -->
+            <label for="Password">Password</label>
+            <input type="password" id="userPassword" name="userPassword" required>
+            <!-- submit button -->
+            <input type="submit" value="Login">
+            
+            <?php if (isset($loginError)): ?>
             <p><?= htmlspecialchars($loginError, ENT_QUOTES, 'UTF-8') ?></p>
-        <?php endif; ?>
-
-    </form>
+            <?php endif; ?>
+            
+        </form>
+    </div>
 </body>
 </html>
 
