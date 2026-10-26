@@ -8,6 +8,12 @@
     <?php
     require_once __DIR__ . "/../infra/connection.php";
 
+    $brazilStates = [
+        'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
+        'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN',
+        'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
+    ];
+
     $formError = null;
     $formSuccess = null;
 
@@ -72,7 +78,14 @@
                     <input type="text" id="routeName" name="routeName" required>
 
                     <label for="routeState">State</label>
-                    <input type="text" id="routeState" name="routeState" required>
+                    <select id="routeState" name="routeState" required>
+                        <option value="">Select a state</option>
+                        <?php foreach ($brazilStates as $state): ?>
+                            <option value="<?= htmlspecialchars($state, ENT_QUOTES, 'UTF-8'); ?>">
+                                <?= htmlspecialchars($state, ENT_QUOTES, 'UTF-8'); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
 
                     <label for="routeLocal">Location</label>
                     <input type="text" id="routeLocal" name="routeLocal" required>
@@ -99,7 +112,7 @@
                                     <td><?= htmlspecialchars($route['routeName'], ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td><?= htmlspecialchars($route['routeState'], ENT_QUOTES, 'UTF-8'); ?></td>
                                     <td><?= htmlspecialchars($route['routeLocal'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                    <td><a class="edit-button" href="edit_route.php?id=<?= (int) $route['id']; ?>">Edit</a></td>
+                                       <td><a class="edit-button" href="routesEdit.php?id=<?= (int) $route['id']; ?>">Edit</a></td>
                                 </tr>
                             <?php endwhile; ?>
                         </tbody>
